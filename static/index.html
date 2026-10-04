@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Serveur de fichiers sécurisé</title>
+    <link rel="stylesheet" href="./static/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📁 Serveur de fichiers</h1>
+        <div id="statut">Non connecté</div>
+      </header>
+
+      <!-- ===================================== -->
+      <!-- ÉCRAN DE CONNEXION -->
+      <!-- ===================================== -->
+      <section id="ecran-connexion" class="ecran">
+        <form id="formulaire-connexion">
+          <h2>Connexion</h2>
+          <input type="text" id="champ-utilisateur" placeholder="Nom d'utilisateur" autocomplete="username" required />
+          <input type="password" id="champ-mot-de-passe" placeholder="Mot de passe" autocomplete="current-password" required />
+          <button type="submit">Se connecter</button>
+          <p id="erreur-connexion" class="erreur"></p>
+          <p class="aide">Comptes de démo : alice/alice123, bob/bob123, admin/admin123</p>
+        </form>
+      </section>
+
+      <!-- ===================================== -->
+      <!-- ÉCRAN PRINCIPAL (APRÈS CONNEXION) -->
+      <!-- ===================================== -->
+      <section id="ecran-principal" class="ecran" hidden>
+        <div class="barre-utilisateur">
+          <span id="info-utilisateur"></span>
+          <button id="btn-deconnexion">Se déconnecter</button>
+        </div>
+
+        <form id="formulaire-upload">
+          <input type="file" id="champ-fichier" required />
+          <button type="submit">Téléverser</button>
+        </form>
+
+        <div id="notifications"></div>
+
+        <table id="table-fichiers">
+          <thead>
+            <tr>
+              <th>Nom</th>
+              <th>Taille</th>
+              <th>Modifié le</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="corps-table-fichiers"></tbody>
+        </table>
+      </section>
+    </div>
+
+    <script src="./static/app.js"></script>
+  </body>
+</html>
